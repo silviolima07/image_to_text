@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 from crewai import Crew, Process
 from my_agents import criar_agente
+
 from my_tasks import criar_task
 from my_tools import save_uploaded_pdf, read_txt
 from config_llm import llama_groq, llava_groq
@@ -16,8 +17,6 @@ import chardet
 import base64
 
 from textwrap import dedent
-
-
 
 # Function to encode the image
 def encode_image(image_path):
@@ -104,10 +103,10 @@ def image_to_text2(client, model, b64_image, prompt):
  
         
 # Função para executar a crew
-def executar_crew(crew):
+def executar_crew(crew, inputs):
     try:
-        crew.kickoff()  # Inicia a execução da crew
-        return crew.get_output()  # Obtém a saída após a execução
+        result = crew.kickoff(inputs=inputs)  # Inicia a execução da crew
+        return result  # Obtém a saída após a execução
     except Exception as e:
         st.error(f"Ocorreu um erro ao executar a crew: {e}")
 
@@ -229,8 +228,17 @@ def resize_image(image_path, max_width=200):
     st.image(img)
     
     return img_base64
+    
+llama = llama_groq
+llava = llava_groq
+    
 
-
+# Configuração da crew com o agente recrutador
+agente_nutri = criar_agente(llama)
+#st.write("Objetivo: "+agente_nutri.goal)
+# Cria a task usando o agente criado
+#st.write('Criar a task')
+task_analise = criar_task(agente_nutri)
 
 
 html_page_title = """
@@ -240,10 +248,8 @@ html_page_title = """
                """               
 st.markdown(html_page_title, unsafe_allow_html=True)
 
-st.markdown("#### Objetivo: informar se é saudável ou não.")
 
-llama = llama_groq
-llava = llava_groq
+
 
 garfo_colher = Image.open("img/garfo_colher.png")
 st.sidebar.image(garfo_colher,caption="",use_column_width=True)
@@ -252,6 +258,7 @@ st.sidebar.markdown("# Menu")
 option = st.sidebar.selectbox("Menu", ["Image", 'About'], label_visibility='hidden')
 
 if option == 'Image':
+    st.markdown("#### Objetivo: informar se é saudável ou não.")
     
     try:
         st.markdown("## Upload Image")
@@ -279,25 +286,25 @@ if option == 'Image':
     If no food is present, return: 'None food in image.' 
     """)
             # Configuração da crew com o agente recrutador
-            #agente_llama = criar_agente(llama)
-            #st.write("Objetivo: "+agente1.goal)
+            #agente_nutri = criar_agente(llama)
+            #st.write("Objetivo: "+agente_nutri.goal)
             # Cria a task usando o agente criado
             #st.write('Criar a task')
-            #task_analise = criar_task(agente_llama)
+            #task_analise = criar_task(agente_nutri)
             #st.write(task_analise)
         
             st.markdown("## Analisar Imagem")   
             #st.info("#### Avalie sempre a resposta final. O agente tem razão ou não?")
             
             
-            # crew = Crew(
-                 # agents=[agente1],
-                 # tasks=[task_analise],
-                 # process=Process.sequential,  # Processamento sequencial das tarefas
-                 # verbose=True
+            crew = Crew(
+                  agents=[agente_nutri],
+                  tasks=[task_analise],
+                  process=Process.sequential,  # Processamento sequencial das tarefas
+                  verbose=True
                  
-              # )
-            # st.write(crew)
+               )
+            #st.write(crew)
             #st.markdown("#### "+prompt)
 
             if st.button("INICIAR"):
@@ -313,7 +320,14 @@ if option == 'Image':
                     try:
                     
                             
-                        resultado = image_to_text(client, llava, base64_image, prompt)
+                        descricao = image_to_text(client, llava, base64_image, prompt)
+                        # Exibindo a descricao
+                        #st.write("Descrição da imagem:")
+                        
+                        #st.write(descricao)
+                        
+                        inputs = {
+                      'descricao': descricao}
             
                         #result = crew.kickoff(inputs=inputs)
                         #st.write(result)
@@ -327,12 +341,17 @@ if option == 'Image':
                         #crew = configurar_crew(agente1, task_analise, base64_image)
 
                         # Executando a crew
-                        #resultado = executar_crew(crew)
-
-                        # Exibindo o resultado
-                        st.write("Resultado da análise:")
+                        if descricao != "There are no foods in the image":
+                            resultado = executar_crew(crew, inputs)
+                            result_text = resultado.raw
+                            #st.write(resultado)
+                            #st.write(result_text)
+                            # Exibindo o texto com um tamanho de fonte maior
+                            # Substituindo quebras de linha por <br> e aplicando o estilo a todo o texto
+                            st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
+                        else:
+                            st.markdown("### "+descricao)
                         
-                        st.write(resultado)
                     except Exception as e:
                         st.error(f"Ocorreu um erro ao executar a crew: {e}")
         
@@ -343,5 +362,24 @@ if option == 'Image':
 if option == 'About':
     prato = Image.open("img/prato.png")
     st.sidebar.image(prato,caption="",use_column_width=True)
-    st.markdown("### A partir da descrição da imagem feita um agente especialista, informar se alimento ou prato é saudável.")
-    st.markdown("### Modelos acessados via Groq.")      
+    st.markdown("### A partir da descrição da imagem feita por um agente especialista, usando o modelo llava,  um agente nutricionista, com modelo llama, informa se alimento é saudável.")
+    st.markdown("### Modelos acessados via Groq.")
+    st.markdown("### Implementado baseado numa aula do prof Fabio Santos. Aula: https://youtu.be/R2XM6zQJL2Y?si=ziiebvJ_8aDd2puj")
+    st.markdown("### Exemplo:")
+    st.write("""
+    Ao analisar os alimentos descritos na imagem, podemos identificar os seguintes alimentos saudáveis:
+
+* Salada com alface, tomate e cenoura: a alface é rica em fibras e vitamina A, enquanto os tomates fornecem vitamina C e lycopene, e as cenouras são ricas em vitamina A e fibras.
+* Tomates: ricos em vitamina C e lycopene, um antioxidante que ajuda a prevenir doenças crônicas.
+* Cenouras: são ricas em vitamina A e fibras, importante para a saúde dos olhos e do sistema imunológico.
+
+Já os alimentos que podem ser considerados menos saudáveis ou que devem ser consumidos em moderação são:
+
+* Carne (beef e sausage): embora sejam boas fontes de proteínas, a carne vermelha consumida em excesso pode contribuir para o aumento do risco de doenças cardíacas e câncer. Além disso, a gordura presente na carne pode ser alta em calorias e gorduras saturadas. O consumo exagerado de sausage também pode levar ao consumo excessivo de sódio e preservantes.
+* Arroz: embora seja uma boa fonte de carboidratos, o arroz branco refinado pode ser pobre em fibras e nutrientes essenciais. É importante optar por opções mais saudáveis, como arroz integral.
+
+Em resumo, a imagem apresenta uma refeição equilibrada, com uma balança adequada entre proteínas, 
+carboidratos e vegetais. No entanto, é importante ter cuidado com a quantidade de carne e arroz 
+consumidos e optar por opções mais saudáveis. Além disso, a adição de salsa ao prato pode ser benéfica, 
+pois fornece vitamina C e flavonoides..""")    
+    

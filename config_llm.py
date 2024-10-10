@@ -10,5 +10,5 @@ import groq
 
 llava_groq = "llava-v1.5-7b-4096-preview" 
 
-llama_groq = "llama3-70b-8192" 
+llama_groq = "groq/llama3-70b-8192" 
       
