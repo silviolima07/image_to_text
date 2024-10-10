@@ -10,3 +10,4 @@ streamlit==1.38.0
 pysqlite3-binary
 langchain-groq==0.1.9
 chardet==5.2.0
+dedent==0.5
