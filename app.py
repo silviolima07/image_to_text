@@ -276,7 +276,7 @@ if option == 'Image':
     
     Never describe cars, trucks,  places in image, focus on foods only.
     
-    If no food is present, return: 'Nenhum alimento identificado.' 
+    If no food is present, return: 'None food in image.' 
     """)
             # Configuração da crew com o agente recrutador
             #agente_llama = criar_agente(llama)
