@@ -251,7 +251,7 @@ st.markdown(html_page_title, unsafe_allow_html=True)
 
 
 
-garfo_colher = Image.open("img/garfo_colher.png")
+garfo_colher = Image.open("img/garfo_colher2.png")
 st.sidebar.image(garfo_colher,caption="",use_column_width=True)
 
 st.sidebar.markdown("# Menu")
