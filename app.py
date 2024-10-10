@@ -15,7 +15,7 @@ import chardet
 
 import base64
 
-from textwrap3 import dedent
+from textwrap import dedent
 
 
 
