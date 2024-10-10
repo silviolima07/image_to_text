@@ -18,6 +18,7 @@ import base64
 from textwrap3 import dedent
 
 
+
 # Function to encode the image
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
