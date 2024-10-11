@@ -243,7 +243,7 @@ task_analise = criar_task(agente_nutri)
 
 html_page_title = """
      <div style="background-color:black;padding=60px">
-         <p style='text-align:center;font-size:50px;font-weight:bold'>Descrição de Alimentos em Imagens</p>
+         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
      </div>
                """               
 st.markdown(html_page_title, unsafe_allow_html=True)
@@ -275,6 +275,7 @@ if option == 'Image':
             base64_image = encode_image(image_path)
             
             prompt = dedent("""
+            
     You are an expert assistant in recognizing and describing foods in images with precision.
     
     Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
@@ -283,8 +284,9 @@ if option == 'Image':
     
     Never describe cars, trucks,  places in image, focus on foods only.
     
-    If no food is present, return: 'None food in image.' 
+    If the image contains no food, respond only with the phrase: 'None food in image.'
     """)
+            
             # Configuração da crew com o agente recrutador
             #agente_nutri = criar_agente(llama)
             #st.write("Objetivo: "+agente_nutri.goal)
@@ -341,7 +343,8 @@ if option == 'Image':
                         #crew = configurar_crew(agente1, task_analise, base64_image)
 
                         # Executando a crew
-                        if descricao != "There are no foods in the image":
+                        answer = "None food in image"
+                        if descricao.lower() != answer.lower():
                             resultado = executar_crew(crew, inputs)
                             result_text = resultado.raw
                             #st.write(resultado)

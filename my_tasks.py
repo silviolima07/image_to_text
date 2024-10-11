@@ -13,14 +13,15 @@ def criar_task(agente1):
         """),
         expected_output=dedent(
         """
-             Ttexto claro, em Português do Brasil.         
+             Texto claro, em Português do Brasil.         
              Um relatório detalhado com:            
              1 - Alimentos identificados na descrição;
              2 - Identificar as vitaminas presentes em cada alimento;
              3 - Informar se alimento é saudável ou não;
-             4 - Informar qual beneficio o alimento oferece para a saúde;
-             5 - Informar alternativa mais saudável para trocar pelo alimento.
-             6 - Um resumo final do conjunto de alimentos descritos no texto.
+             4-  Informar as calorias de cada alimento;
+             5 - Informar qual beneficio o alimento oferece para a saúde;
+             6 - Informar alternativa mais saudável para trocar pelo alimento.
+             7 - Um resumo final do conjunto de alimentos descritos no texto.
              
              Exemplo a ser seguido:
              Ao analisar os alimentos descritos na imagem, podemos identificar os seguintes alimentos saudáveis:
