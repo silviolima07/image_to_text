@@ -367,7 +367,6 @@ if option == 'About':
     st.sidebar.image(prato,caption="",use_column_width=True)
     st.markdown("### A partir da descrição da imagem feita por um agente especialista, usando o modelo llava,  um agente nutricionista, com modelo llama, informa se alimento é saudável.")
     st.markdown("### Modelos acessados via Groq.")
-    st.markdown("### Projeto baseado numa aula do prof Fabio Santos. Aula: https://youtu.be/R2XM6zQJL2Y?si=ziiebvJ_8aDd2puj")
     st.markdown("### Exemplo:")
     st.write("""
     Ao analisar os alimentos descritos na imagem, podemos identificar os seguintes alimentos saudáveis:
