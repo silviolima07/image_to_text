@@ -270,6 +270,16 @@ if option == 'Image':
             # Getting the base64 string
             #base64_image = encode_image(image_path)
             st.image(img)
+            
+            # Usando HTML para centralizar a imagem
+            st.markdown(
+             f"""
+                 <div style="display: flex; justify-content: center;">
+                   <img src="{image_path}" alt="Imagem" style="width: 50%;">
+                 </div>
+             """, unsafe_allow_html=True
+             )
+             
             # Exemplo de uso
             #base64_image = resize_image(image_path)
             base64_image = encode_image(image_path)
