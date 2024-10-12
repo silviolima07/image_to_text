@@ -275,7 +275,7 @@ if option == 'Image':
             st.markdown(
              f"""
                  <div style="display: flex; justify-content: center;">
-                   <img src="{image_path}" alt="Imagem" style="width: 50%;">
+                   <img src="{img}" alt="Imagem" style="width: 50%;">
                  </div>
              """, unsafe_allow_html=True
              )
