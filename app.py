@@ -268,21 +268,16 @@ if option == 'Image':
             image_path="image.png"
             img.save(image_path)
             # Getting the base64 string
-            #base64_image = encode_image(image_path)
-            st.image(img)
-            
+            base64_image = encode_image(image_path)
             # Usando HTML para centralizar a imagem
             st.markdown(
-             f"""
-                 <div style="display: flex; justify-content: center;">
-                   <img src="{img}" alt="Imagem" style="width: 50%;">
-                 </div>
-             """, unsafe_allow_html=True
-             )
-             
-            # Exemplo de uso
-            #base64_image = resize_image(image_path)
-            base64_image = encode_image(image_path)
+        f"""
+        <div style="display: flex; justify-content: center;">
+            <img src="data:image/png;base64,{base64_image}" alt="Imagem" style="width: 80%; height: auto;">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
             
             prompt = dedent("""
             
@@ -304,7 +299,7 @@ if option == 'Image':
             #st.write('Criar a task')
             #task_analise = criar_task(agente_nutri)
             #st.write(task_analise)
-        
+            st.write(" ")
             st.markdown("## Analisar Imagem")   
             #st.info("#### Avalie sempre a resposta final. O agente tem razão ou não?")
             
