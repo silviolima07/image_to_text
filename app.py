@@ -88,7 +88,7 @@ def selecionar_idioma():
     "Output in:",
     ["Portuguese", "English"],
     horizontal = True,
-    label_visibility='hidden'
+    label_visibility='collapsed'
     )
     return idioma   
  
