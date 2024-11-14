@@ -83,11 +83,12 @@ def image_to_text(client, model, b64_image, prompt):
     return result.choices[0].message.content
     
 def selecionar_idioma():
-    st.markdown("### Output in:")
+    st.markdown("#### Output in:")
     idioma = st.radio(
     "Output in:",
     ["Portuguese", "English"],
-    horizontal = True
+    horizontal = True,
+    label_visibility='hidden'
     )
     return idioma   
  
