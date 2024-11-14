@@ -81,25 +81,33 @@ def image_to_text(client, model, b64_image, prompt):
    )      
   
     return result.choices[0].message.content
+    
+def selecionar_idioma():
+    idioma = st.radio(
+    "Output in:",
+    ["Portuguese", "English"],
+    horizontal = True
+    )
+    return idioma   
  
-def image_to_text2(client, model, b64_image, prompt):
+#def image_to_text2(client, model, b64_image, prompt):
     # Reduza o prompt para algo mais curto
-    prompt = "Analise a imagem fornecida."
+#    prompt = "Analise a imagem fornecida."
 
     # Passar a string combinando o prompt e a imagem base64
-    content_string = f"{prompt}\n\nImagem base64: data:image/png;base64,{b64_image}"
+#    content_string = f"{prompt}\n\nImagem base64: data:image/png;base64,{b64_image}"
 
-    result = client.chat.completions.create(
-        messages=[
-            {
-                "role": "user",
-                "content": content_string  # Garantindo que o conteúdo seja o menor possível
-            }
-        ],
-        model=model
-    )
+#    result = client.chat.completions.create(
+#        messages=[
+#            {
+#                "role": "user",
+#                "content": content_string  # Garantindo que o conteúdo seja o menor possível
+#            }
+#        ],
+#        model=model
+#    )
   
-    return result.choices[0].message.content
+#    return result.choices[0].message.content
  
         
 # Função para executar a crew
@@ -126,9 +134,14 @@ def configurar_crew(agent, task, base64_image):
         ],
     }
 
+    inputs = {
+               'idioma': idioma,
+               'mensagem': mensagem
+               }
+               
     # Criar um Crew e adicionar a Task
     crew = Crew(agent=agent)
-    crew.add_task(task, inputs=mensagem)  # Adiciona a task e a mensagem
+    crew.add_task(task, inputs=inputs)  # Adiciona a task e a mensagem
 
     return crew
     
@@ -144,61 +157,61 @@ client = Groq()
 #mostrar_comandos = st.checkbox("Mostrar progresso das tarefas em execução", value=True)
 
 # Função para mostrar o progresso da execução das tarefas e capturar o resultado final
-def executar_tarefas(crew, inputs):
-    st.write("### Executando as tasks...")
+#def executar_tarefas(crew, inputs):
+#    st.write("### Executando as tasks...")
 
     # Variável para armazenar o resultado final após a execução de todas as tasks
-    result = None
+#    result = None
 
     # Executa as tasks uma por uma e exibe o progresso no Streamlit
-    for i, task in enumerate(crew.tasks):
-        task_agent = (task.agent.role) # Nome do agente responsavel, definido em my_agents
-        task_name = (task.name).upper()  # Nome da tasks, definido tem my_tasks
-        st.write(f"Agent : **{task_agent}**")  # Mostra o nome do agent
-        st.write(f"Executando task : **{task_name}**")  # Mostra o nome da task
-        st.write(f"Descrição:")
-        st.write(f"{task.description}")
-        time.sleep(2)  # Simula o tempo de execução da task
+#    for i, task in enumerate(crew.tasks):
+#        task_agent = (task.agent.role) # Nome do agente responsavel, definido em my_agents
+#        task_name = (task.name).upper()  # Nome da tasks, definido tem my_tasks
+#        st.write(f"Agent : **{task_agent}**")  # Mostra o nome do agent
+#        st.write(f"Executando task : **{task_name}**")  # Mostra o nome da task
+#        st.write(f"Descrição:")
+#        st.write(f"{task.description}")
+#        time.sleep(2)  # Simula o tempo de execução da task
         # Aqui você pode simular o progresso de cada task, ou capturar a execução real
 
     # Após a execução de todas as tasks, salva o resultado
-    result = crew.kickoff(inputs=inputs)
+#    result = crew.kickoff(inputs=inputs)
     
-    return result  # Retorna o resultado final
+#    return result  # Retorna o resultado final
 
 
 # Função para ler o PDF e extrair o texto
-def extract_text_from_pdf(uploaded_file):
-    text_content = ""
-    with pdfplumber.open(uploaded_file) as pdf:
-        for page in pdf.pages:
-            text_content += page.extract_text() + "\n"
-    return text_content
+#def extract_text_from_pdf(uploaded_file):
+#    text_content = ""
+#    with pdfplumber.open(uploaded_file) as pdf:
+#        for page in pdf.pages:
+#            text_content += page.extract_text() + "\n"
+#    return text_content
 
 # Função para salvar o conteúdo extraído em um arquivo txt
-def save_to_txt(text_content, output_filename="profile.txt"):
-    with open(output_filename, "w", encoding="latin1") as text_file:
-        text_file.write(text_content)
+#def save_to_txt(text_content, output_filename="profile.txt"):
+#    with open(output_filename, "w", encoding="latin1") as text_file:
+#        text_file.write(text_content)
 
 # Função para ler o conteúdo de um arquivo markdown
-def read_markdown_file(file_path):
-    if os.path.exists(file_path):
-        with open(file_path, "r", encoding="utf-8") as file:
-            return file.read()
-    else:
-        raise FileNotFoundError(f"Arquivo {file_path} não encontrado.")
+#def read_markdown_file(file_path):
+#    if os.path.exists(file_path):
+#        with open(file_path, "r", encoding="utf-8") as file:
+#            return file.read()
+#    else:
+#        raise FileNotFoundError(f"Arquivo {file_path} não encontrado.")
 
-def executar_task(analise, image):
-     mensagem = {
-         "role": "user",
-         "content": f"Analise a seguinte imagem: {image}"
-     }
-    
-     try:
-         resultado = analise.invoke(mensagem)
-         return resultado
-     except Exception as e:
-         st.error(f"Ocorreu um erro: {e}")
+#def executar_task(analise, image):
+#     mensagem = {
+#         "role": "user",
+#         "content": f"Analise a seguinte imagem: {image}"
+#     }
+#    
+#     try:
+#         resultado = analise.invoke(mensagem)
+#         return resultado
+#     except Exception as e:
+#         st.error(f"Ocorreu um erro: {e}")
 
 
 
@@ -300,7 +313,9 @@ if option == 'Image':
             #task_analise = criar_task(agente_nutri)
             #st.write(task_analise)
             st.write(" ")
-            st.markdown("## Analisar Imagem")   
+            st.markdown("## Analisar Imagem")
+            idioma = selecionar_idioma()
+            
             #st.info("#### Avalie sempre a resposta final. O agente tem razão ou não?")
             
             
@@ -334,7 +349,8 @@ if option == 'Image':
                         #st.write(descricao)
                         
                         inputs = {
-                      'descricao': descricao}
+                      'descricao': descricao,
+                      'idioma': idioma}
             
                         #result = crew.kickoff(inputs=inputs)
                         #st.write(result)
@@ -350,6 +366,7 @@ if option == 'Image':
                         # Executando a crew
                         answer = "None food in image"
                         if descricao.lower() != answer.lower():
+                            
                             resultado = executar_crew(crew, inputs)
                             result_text = resultado.raw
                             #st.write(resultado)

@@ -13,7 +13,7 @@ def criar_task(agente1):
         """),
         expected_output=dedent(
         """
-             Texto claro, em Português do Brasil.         
+             Texto claro, em {idioma}.         
              Um relatório detalhado com:            
              1 - Alimentos identificados na descrição;
              2 - Identificar as vitaminas presentes em cada alimento;
@@ -44,17 +44,17 @@ Em resumo, a imagem apresenta uma refeição equilibrada e saudável, com uma ba
     #st.write("Task: criada com sucesso")
     return analise
 
-def executar_task(analise, image):
-    st.write(image) 
-    mensagem = {
-         "role": "user",
-         "content": f"Analise a seguinte imagem: {image}"
-     }
+#def executar_task(analise, image):
+#    st.write(image) 
+#    mensagem = {
+#         "role": "user",
+#         "content": f"Analise a seguinte imagem: {image}"
+#     }
     
-    try:
-        resultado = analise.execute(mensagem)
-        return resultado
-    except Exception as e:
-        st.error(f"Ocorreu um erro: {e}")
+#    try:
+#        resultado = analise.execute(mensagem)
+#        return resultado
+#    except Exception as e:
+#        st.error(f"Ocorreu um erro: {e}")
 
    
