@@ -5,7 +5,7 @@ from my_agents import criar_agente
 
 from my_tasks import criar_task
 from my_tools import save_uploaded_pdf, read_txt
-from config_llm import llama_groq
+from config_llm import MyLLM
 
 import os
 from PIL import Image
@@ -77,7 +77,7 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 client = Groq()
     
-llama = llama_groq
+llama = MyLLM.llama_groq
    
 
 # Configuração da crew com o agente recrutador
