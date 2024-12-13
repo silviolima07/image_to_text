@@ -160,7 +160,7 @@ if option == 'Image':
             #st.write(crew)
             #st.markdown("#### "+prompt)
           
-            st.write("Model: ", llama) 
+            st.write("Model: ", MyLLM.GROQ_LLAMA) 
           
             if st.button("INICIAR"):
               
