@@ -84,7 +84,7 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 client = Groq(api_key=GROQ_API_KEY)
     
 #llama = MyLLM.GROQ_LLAMA.model
-llama = llama_groq
+#llama = llama_groq
 
 html_page_title = """
 <div style="background-color:black;padding=60px">
