@@ -23,14 +23,14 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')   
     
-def image_to_text(client, model, b64_image, prompt):
+def image_to_text(client, model, b64_image, prompt, idioma):
     
     result = client.chat.completions.create(
         messages=[
             {
                 "role": "user",
                 "content": [
-                {'type': 'text', 'text': prompt},
+                {'type': 'text', 'text': prompt, text: idioma},
                 {
                   'type': 'image_url',
                   'image_url': {
@@ -170,7 +170,7 @@ if option == 'Image':
                   
                     try:
                          
-                        descricao = image_to_text(client, llama, base64_image, prompt)
+                        descricao = image_to_text(client, llama, base64_image, prompt, idioma)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
                         
