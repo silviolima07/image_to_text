@@ -4,12 +4,11 @@ from textwrap import dedent
 from config_llm import MyLLM
 
 llm = MyLLM.GROQ_LLAMA.model
-
-st.markdown("LLM do agente:", llm)
+st.markdown("LLM do agente: "+ str(llm))
 
 def criar_agente() -> Agent:
     #st.write("Agente criado")
-    st.markdown("LLM do agente: "+ str(llm))
+    
     return Agent(
          role="Nutricionista",
          goal="Identificar se alimentos na descrição  são saudáveis ou não.",
