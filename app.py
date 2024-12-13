@@ -86,9 +86,6 @@ client = Groq(api_key=GROQ_API_KEY)
 #llama = MyLLM.GROQ_LLAMA.model
 llama = llama_groq
 
-# Configurar como o LLM padrão
-Crew.init(default_llm=llama_groq)
-
 html_page_title = """
 <div style="background-color:black;padding=60px">
         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
