@@ -4,7 +4,7 @@ from textwrap import dedent
 #
     
 def criar_task(agente):
-    #st.write("Criando a task")
+    st.write("Criando a task")
     analise = Task(
         name='analise_imagem',
         description= dedent("""
