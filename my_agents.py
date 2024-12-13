@@ -9,7 +9,7 @@ def criar_agente(modelo) -> Agent:
          goal="Identificar se alimentos descritos no texto são saudáveis ou não.",
          allow_delegation=False,  # Define se o agente pode delegar tarefas
          tools=[], 
-         llm='groq/'+modelo,
+         llm=modelo,
          backstory=dedent("""
               Você é um especialista em nutrição com experiência em identificar comidas saudáveis ou não."""
      )
