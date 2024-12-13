@@ -4,7 +4,7 @@ from textwrap import dedent
 #
     
 def criar_task(agente):
-    st.write("Criando a task")
+    #st.write("Criando a task")
     analise = Task(
         name='analise_imagem',
         description= dedent("""
@@ -44,17 +44,5 @@ Em resumo, a imagem apresenta uma refeição equilibrada e saudável, com uma ba
     #st.write("Task: criada com sucesso")
     return analise
 
-#def executar_task(analise, image):
-#    st.write(image) 
-#    mensagem = {
-#         "role": "user",
-#         "content": f"Analise a seguinte imagem: {image}"
-#     }
-    
-#    try:
-#        resultado = analise.execute(mensagem)
-#        return resultado
-#    except Exception as e:
-#        st.error(f"Ocorreu um erro: {e}")
 
    
