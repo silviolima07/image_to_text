@@ -129,7 +129,7 @@ def resize_image(image_path, max_width=200):
     return img_base64
     
 llama = llama_groq
-st.write("Model: ", llama)    
+   
 
 # Configuração da crew com o agente recrutador
 agente_nutri = criar_agente(llama)
@@ -176,10 +176,19 @@ if option == 'Image':
             
             prompt = dedent("""
             
-    You are an expert assistant in recognizing and describing foods in images with precision.
-    
-    Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
-    
+    Você é um assistente especializado em descrever imagens. Sua tarefa é analisar uma imagem fornecida (codificada em base64) e identificar alimentos ou bebidas visíveis. Retorne a resposta no seguinte formato JSON:
+
+Se alimentos forem encontrados:
+{
+  "status": "success",
+  "description": "Descrição clara e detalhada dos alimentos visíveis na imagem."
+}
+
+Se nenhum alimento for encontrado:
+{
+  "status": "no_food_detected",
+  "description": "Nenhum alimento detectado na imagem."
+}
     """)
             
             # Configuração da crew com o agente recrutador
@@ -205,7 +214,9 @@ if option == 'Image':
                )
             #st.write(crew)
             #st.markdown("#### "+prompt)
-
+          
+            st.write("Model: ", llama) 
+          
             if st.button("INICIAR"):
                 #inputs = {
                 #      'question': "Fornecer uma descrição detalhada da imagem",
