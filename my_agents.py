@@ -5,10 +5,11 @@ from config_llm import MyLLM
 
 llm = MyLLM.GROQ_LLAMA.model
 
-st.write("LLM do agente:", llm)
+st.markdown("LLM do agente:", llm)
 
 def criar_agente() -> Agent:
     #st.write("Agente criado")
+    st.markdown("LLM do agente:", llm)
     return Agent(
          role="Nutricionista",
          goal="Identificar se alimentos na descrição  são saudáveis ou não.",
@@ -16,7 +17,6 @@ def criar_agente() -> Agent:
          tools=[], 
          verbose=True,
          llm=llm,
-        provider='groq',
          backstory=dedent("""
               Você é um especialista em nutrição com experiência em identificar comidas saudáveis ou não."""
      )
