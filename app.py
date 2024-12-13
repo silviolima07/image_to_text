@@ -82,7 +82,7 @@ llama = llama_groq
    
 
 # Configuração da crew com o agente recrutador
-agente_nutri = criar_agente('groq/'llama)
+agente_nutri = criar_agente('groq/'+llama)
 #st.write("Objetivo: "+agente_nutri.goal)
 # Cria a task usando o agente criado
 #st.write('Criar a task')
