@@ -61,36 +61,13 @@ def selecionar_idioma():
 def executar_crew(crew, inputs):
     try:
         result = crew.kickoff(inputs=inputs)  # Inicia a execução da crew
+        st.write("Result from analyse of description")
+        st.write(result)
+      
         return result  # Obtém a saída após a execução
     except Exception as e:
         st.error(f"Ocorreu um erro ao executar a crew: {e}")
 
-# Função para configurar a crew com a task
-def configurar_crew(agent, task, base64_image):
-    # Mensagem a ser enviada
-    mensagem = {
-        "role": "user",
-        "content": [
-            {"type": "text", "text": "What's in this image?"},
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": f"data:image/jpeg;base64,{base64_image}",
-                },
-            },
-        ],
-    }
-
-    inputs = {
-               'idioma': idioma,
-               'mensagem': mensagem
-               }
-               
-    # Criar um Crew e adicionar a Task
-    crew = Crew(agent=agent)
-    crew.add_task(task, inputs=inputs)  # Adiciona a task e a mensagem
-
-    return crew
     
 # Carregar variáveis de ambiente
 load_dotenv()
