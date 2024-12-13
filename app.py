@@ -436,5 +436,5 @@ Já os alimentos que podem ser considerados menos saudáveis ou que devem ser co
 Em resumo, a imagem apresenta uma refeição equilibrada, com uma balança adequada entre proteínas, 
 carboidratos e vegetais. No entanto, é importante ter cuidado com a quantidade de carne e arroz 
 consumidos e optar por opções mais saudáveis. Além disso, a adição de salsa ao prato pode ser benéfica, 
-pois fornece vitamina C e flavonoides..""")    
+#pois fornece vitamina C e flavonoides..""")    
 """    
