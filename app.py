@@ -156,8 +156,8 @@ st.write("Groq key:", GROQ_API_KEY)
 
 from groq import Groq
 
-client = Groq()
-completion = client.chat.completions.create(
+client_groq = Groq()
+completion = client_groq.chat.completions.create(
     model="llama-3.2-90b-vision-preview",
     messages=[
         {
