@@ -143,7 +143,7 @@ if option == 'Image':
             # Cria a task usando o agente criado
             #st.write('Criar a task')
             task_analise = criar_task(agente_nutri)
-            st.write(task_analise)
+            #st.write(task_analise)
             st.write(" ")
             st.markdown("## Analisar Imagem")
             idioma = selecionar_idioma()
@@ -158,11 +158,8 @@ if option == 'Image':
                   verbose=True
                  
                )
-            #st.write(crew)
-            #st.markdown("#### "+prompt)
           
             st.write("Model: ", MyLLM.GROQ_LLAMA.model) 
-            #st.morkdown("### Model: "+llama) 
           
             if st.button("INICIAR"):
               
