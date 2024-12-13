@@ -86,6 +86,8 @@ client = Groq(api_key=GROQ_API_KEY)
 #llama = MyLLM.GROQ_LLAMA.model
 llama = llama_groq
 
+# Configurar como o LLM padrão
+Crew.set_default_llm(llama_groq)
 
 html_page_title = """
 <div style="background-color:black;padding=60px">
