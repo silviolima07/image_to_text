@@ -228,7 +228,7 @@ Se nenhum alimento for encontrado:
                   
                     try:
                          
-                        descricao = image_to_text(client, llama, img, prompt)
+                        descricao = image_to_text(client, llama, base64_image, prompt)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
                         
