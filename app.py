@@ -91,26 +91,6 @@ def selecionar_idioma():
     label_visibility='collapsed'
     )
     return idioma   
- 
-#def image_to_text2(client, model, b64_image, prompt):
-    # Reduza o prompt para algo mais curto
-#    prompt = "Analise a imagem fornecida."
-
-    # Passar a string combinando o prompt e a imagem base64
-#    content_string = f"{prompt}\n\nImagem base64: data:image/png;base64,{b64_image}"
-
-#    result = client.chat.completions.create(
-#        messages=[
-#            {
-#                "role": "user",
-#                "content": content_string  # Garantindo que o conteúdo seja o menor possível
-#            }
-#        ],
-#        model=model
-#    )
-  
-#    return result.choices[0].message.content
- 
         
 # Função para executar a crew
 def executar_crew(crew, inputs):
@@ -154,67 +134,6 @@ load_dotenv()
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 client = Groq()
-
-# Criando o checkbox para mostrar ou não os comandos das tasks
-#mostrar_comandos = st.checkbox("Mostrar progresso das tarefas em execução", value=True)
-
-# Função para mostrar o progresso da execução das tarefas e capturar o resultado final
-#def executar_tarefas(crew, inputs):
-#    st.write("### Executando as tasks...")
-
-    # Variável para armazenar o resultado final após a execução de todas as tasks
-#    result = None
-
-    # Executa as tasks uma por uma e exibe o progresso no Streamlit
-#    for i, task in enumerate(crew.tasks):
-#        task_agent = (task.agent.role) # Nome do agente responsavel, definido em my_agents
-#        task_name = (task.name).upper()  # Nome da tasks, definido tem my_tasks
-#        st.write(f"Agent : **{task_agent}**")  # Mostra o nome do agent
-#        st.write(f"Executando task : **{task_name}**")  # Mostra o nome da task
-#        st.write(f"Descrição:")
-#        st.write(f"{task.description}")
-#        time.sleep(2)  # Simula o tempo de execução da task
-        # Aqui você pode simular o progresso de cada task, ou capturar a execução real
-
-    # Após a execução de todas as tasks, salva o resultado
-#    result = crew.kickoff(inputs=inputs)
-    
-#    return result  # Retorna o resultado final
-
-
-# Função para ler o PDF e extrair o texto
-#def extract_text_from_pdf(uploaded_file):
-#    text_content = ""
-#    with pdfplumber.open(uploaded_file) as pdf:
-#        for page in pdf.pages:
-#            text_content += page.extract_text() + "\n"
-#    return text_content
-
-# Função para salvar o conteúdo extraído em um arquivo txt
-#def save_to_txt(text_content, output_filename="profile.txt"):
-#    with open(output_filename, "w", encoding="latin1") as text_file:
-#        text_file.write(text_content)
-
-# Função para ler o conteúdo de um arquivo markdown
-#def read_markdown_file(file_path):
-#    if os.path.exists(file_path):
-#        with open(file_path, "r", encoding="utf-8") as file:
-#            return file.read()
-#    else:
-#        raise FileNotFoundError(f"Arquivo {file_path} não encontrado.")
-
-#def executar_task(analise, image):
-#     mensagem = {
-#         "role": "user",
-#         "content": f"Analise a seguinte imagem: {image}"
-#     }
-#    
-#     try:
-#         resultado = analise.invoke(mensagem)
-#         return resultado
-#     except Exception as e:
-#         st.error(f"Ocorreu um erro: {e}")
-
 
 
 # Função para redimensionar a imagem e convertê-la para Base64
@@ -366,8 +285,8 @@ if option == 'Image':
                         if descricao.lower() != answer.lower():
                             
                             resultado = executar_crew(crew, inputs)
-                            result_text = resultado.choices[0]
-                            #st.write(resultado)
+                            #result_text = resultado.choices[0]
+                            st.write(resultado)
                             #st.write(result_text)
                             # Exibindo o texto com um tamanho de fonte maior
                             # Substituindo quebras de linha por <br> e aplicando o estilo a todo o texto
