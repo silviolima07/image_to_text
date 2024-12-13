@@ -202,21 +202,10 @@ if option == 'Image':
                       'descricao': descricao,
                       'idioma': idioma}
             
-                        #result = crew.kickoff(inputs=inputs)
-                        #st.write(result)
-                        #executar_tarefas(crew)
-                        #executar_task(task_analise, base64_image)
-                        
-                        # Criando a task
-                        #task = criar_task(agent)
-
-                        # Configurando a crew com a task
-                        #crew = configurar_crew(agente1, task_analise, base64_image)
-
                         # Executando a crew
                         answer = "None food in image"
                         if descricao.lower() != answer.lower():
-                            st.write("Analysing if health or not")
+                            st.markdown("### Analysing if health or not")
                             resultado = executar_crew(crew, inputs)
                             #result_text = resultado.raw
                             st.write("Analise: ",resultado)
