@@ -185,11 +185,11 @@ if option == 'Image':
                             st.markdown("### Analysing if health or not")
                             resultado = executar_crew(crew, inputs)
                             #result_text = resultado.raw
-                            st.write("Analise: ",resultado)
-                            #st.write(result_text)
+                            st.write("Analise: ")
+                            st.write(resultado)
                             # Exibindo o texto com um tamanho de fonte maior
                             # Substituindo quebras de linha por <br> e aplicando o estilo a todo o texto
-                            st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
+                            #st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
                         else:
                             st.markdown("### "+descricao)
                         
