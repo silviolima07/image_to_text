@@ -421,7 +421,7 @@ if option == 'About':
     st.markdown("### A partir da descrição da imagem feita por um agente especialista, usando o modelo llava,  um agente nutricionista, com modelo llama, informa se alimento é saudável.")
     st.markdown("### Modelos acessados via Groq.")
     st.markdown("### Exemplo:")
-    st.write("""
+ #   st.write("""
     Ao analisar os alimentos descritos na imagem, podemos identificar os seguintes alimentos saudáveis:
 
 * Salada com alface, tomate e cenoura: a alface é rica em fibras e vitamina A, enquanto os tomates fornecem vitamina C e lycopene, e as cenouras são ricas em vitamina A e fibras.
