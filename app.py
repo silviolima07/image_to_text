@@ -23,14 +23,14 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')   
     
-def image_to_text(client, model, b64_image, prompt, idioma):
+def image_to_text(client, model, b64_image, prompt):
     
     result = client.chat.completions.create(
         messages=[
             {
                 "role": "user",
                 "content": [
-                {'type': 'text', 'text': prompt, text: idioma},
+                {'type': 'text', 'text': prompt},
                 {
                   'type': 'image_url',
                   'image_url': {
@@ -124,7 +124,8 @@ if option == 'Image':
         unsafe_allow_html=True
     )
             
-            prompt = dedent("""     
+            prompt = dedent("""  
+    Answer in {idioma}.        
     You are an expert assistant in recognizing and describing foods in images with precision.
     
     Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
@@ -135,7 +136,7 @@ if option == 'Image':
     
     If the image contains no food, respond only with the phrase: 'None food in image.'
     
-    Answer in {idioma}.
+    
 }
     """)
             
@@ -170,7 +171,7 @@ if option == 'Image':
                   
                     try:
                          
-                        descricao = image_to_text(client, llama, base64_image, prompt, idioma)
+                        descricao = image_to_text(client, llama, base64_image, prompt)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
                         
