@@ -3,7 +3,7 @@ import streamlit as st
 from textwrap import dedent
 #
     
-def criar_task(agente1):
+def criar_task(agente):
     #st.write("Criando a task")
     analise = Task(
         name='analise_imagem',
@@ -38,8 +38,8 @@ Em resumo, a imagem apresenta uma refeição equilibrada e saudável, com uma ba
              
               """),
         
-        agent=agente1,
-        provider='groq'
+        agent=agente
+        #provider='groq'
     )    
     #st.write("Task: criada com sucesso")
     return analise
