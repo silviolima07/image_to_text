@@ -147,18 +147,15 @@ if option == 'Image':
     )
             
             prompt = dedent("""     
-    Você é um assistente especializado em descrever imagens. Sua tarefa é analisar uma imagem fornecida (codificada em base64) e identificar alimentos ou bebidas visíveis. Retorne a resposta no seguinte formato JSON:
+    You are an expert assistant in recognizing and describing foods in images with precision.
+    
+    Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
 
-Se alimentos forem encontrados:
-{
-  "status": "success",
-  "description": "Descrição clara e detalhada dos alimentos visíveis na imagem."
-}
-
-Se nenhum alimento for encontrado:
-{
-  "status": "no_food_detected",
-  "description": "Nenhum alimento detectado na imagem."
+    Always considering only foods present in the image.
+    
+    Never describe cars, trucks,  places in image, focus on foods only.
+    
+    If the image contains no food, respond only with the phrase: 'None food in image.'
 }
     """)
             
