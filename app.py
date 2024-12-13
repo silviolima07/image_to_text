@@ -226,9 +226,9 @@ if option == 'Image':
                             
                         descricao = image_to_text(client, llama, base64_image, prompt)
                         # Exibindo a descricao
-                        #st.write("Descrição da imagem:")
+                        st.write("Descrição da imagem:")
                         
-                        #st.write(descricao)
+                        st.write(descricao)
                         
                         inputs = {
                       'descricao': descricao,
@@ -255,7 +255,7 @@ if option == 'Image':
                             #st.write(result_text)
                             # Exibindo o texto com um tamanho de fonte maior
                             # Substituindo quebras de linha por <br> e aplicando o estilo a todo o texto
-                            st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
+                            #st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
                         else:
                             st.markdown("### "+descricao)
                         
