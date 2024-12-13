@@ -78,6 +78,7 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 client = Groq()
     
 llama = MyLLM.GROQ_LLAMA
+llama = "'llama-3.2-11b-vision-preview"
    
 
 # Configuração da crew com o agente recrutador
