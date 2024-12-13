@@ -11,7 +11,7 @@ def criar_agente() -> Agent:
     #st.write("Agente criado")
     return Agent(
          role="Nutricionista",
-         goal="Identificar se alimentos descritos no texto são saudáveis ou não.",
+         goal="Identificar se alimentos na descrição  são saudáveis ou não.",
          allow_delegation=False,  # Define se o agente pode delegar tarefas
          tools=[], 
          verbose=True,
