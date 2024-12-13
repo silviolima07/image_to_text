@@ -5,7 +5,7 @@ from my_agents import criar_agente
 
 from my_tasks import criar_task
 from my_tools import save_uploaded_pdf, read_txt
-from config_llm import MyLLM, llama_groq
+from config_llm import MyLLM
 
 import os
 from PIL import Image
