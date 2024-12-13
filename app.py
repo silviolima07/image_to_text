@@ -87,7 +87,7 @@ client = Groq(api_key=GROQ_API_KEY)
 llama = MyLLM.GROQ_LLAMA.model
 #llama = llama_groq
 
-st.markdown("### LLM: "+llama)
+st.markdown("#### LLM: "+llama)
 
 html_page_title = """
 <div style="background-color:black;padding=60px">
@@ -161,7 +161,7 @@ if option == 'Image':
                  
                )
           
-            st.write("Model: ", llm) 
+            st.markdown("#### LLM: "+llama)
           
             if st.button("INICIAR"):
               
