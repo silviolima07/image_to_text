@@ -61,7 +61,7 @@ def image_to_text(client, model, b64_image, prompt):
     Your role is to analyze images and provide clear, detailed, and accurate descriptions, considering both visual and contextual elements.
     When you receive an image, you should offer a detailed and precise description of all visible elements.
     """
-            #},
+            },
             {
                 "role": "user",
                 "content": [
