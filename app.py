@@ -22,14 +22,15 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')   
     
-def image_to_text(client, model, b64_image, prompt, idioma):
-    language_instruction = {
-    "Portuguese": ("Responda em português com descrições precisas e detalhadas dos alimentos. "
-                   "Use frases claras e bem estruturadas."),
-    "English": "Respond in English with precise and detailed descriptions of the food. Use clear and structured sentences."
-}
+#def image_to_text(client, model, b64_image, prompt, idioma):
+def image_to_text(client, model, b64_image, prompt):
+    #language_instruction = {
+    #"Portuguese": ("Responda em português com descrições precisas e detalhadas dos alimentos. "
+    #               "Use frases claras e bem estruturadas."),
+    #"English": "Respond in English with precise and detailed descriptions of the food. Use clear and structured sentences."
+#}
     # Adiciona a instrução de idioma ao prompt
-    prompt = f"{prompt}\n\n{language_instruction[idioma]}"
+    #prompt = f"{prompt}\n\n{language_instruction[idioma]}"
   
     result = client.chat.completions.create(
         messages=[
@@ -167,7 +168,8 @@ if option == 'Image':
                   
                     try:
                          
-                        descricao = image_to_text(client, llama, base64_image, prompt, idioma)
+                        #descricao = image_to_text(client, llama, base64_image, prompt, idioma)
+                        descricao = image_to_text(client, llama, base64_image, prompt)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
                         
