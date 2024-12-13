@@ -77,8 +77,9 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 client = Groq()
     
-llama = MyLLM.GROQ_LLAMA.model
+#llama = MyLLM.GROQ_LLAMA.model
 llama = llama_groq
+st.write("Model: ", llama) 
 
 # Configuração da crew com o agente recrutador
 agente_nutri = criar_agente()
@@ -160,7 +161,7 @@ if option == 'Image':
             #st.write(crew)
             #st.markdown("#### "+prompt)
           
-            st.write("Model: ", MyLLM.GROQ_LLAMA.model) 
+            #st.write("Model: ", MyLLM.GROQ_LLAMA.model) 
           
             if st.button("INICIAR"):
               
