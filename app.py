@@ -285,11 +285,11 @@ agente_nutri = criar_agente(llama)
 task_analise = criar_task(agente_nutri)
 
 
-html_page_title = """
-     <div style="background-color:black;padding=60px">
-         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
-     </div>
-               """               
+#html_page_title = """
+#     <div style="background-color:black;padding=60px">
+#         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
+#     </div>
+#               """               
 st.markdown(html_page_title, unsafe_allow_html=True)
 
 
@@ -315,26 +315,26 @@ if option == 'Image':
             base64_image = encode_image(image_path)
             # Usando HTML para centralizar a imagem
             st.markdown(
-        f"""
-        <div style="display: flex; justify-content: center;">
-            <img src="data:image/png;base64,{base64_image}" alt="Imagem" style="width: 80%; height: auto;">
-        </div>
-        """,
+ #       f"""
+ #       <div style="display: flex; justify-content: center;">
+ #           <img src="data:image/png;base64,{base64_image}" alt="Imagem" style="width: 80%; height: auto;">
+ #       </div>
+ #       """,
         unsafe_allow_html=True
     )
             
-            prompt = dedent("""
+   #         prompt = dedent("""
             
-    You are an expert assistant in recognizing and describing foods in images with precision.
+  #  You are an expert assistant in recognizing and describing foods in images with precision.
     
-    Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
+  #  Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
 
-    Always considering only foods present in the image.
+   # Always considering only foods present in the image.
     
-    Never describe cars, trucks,  places in image, focus on foods only.
+   # Never describe cars, trucks,  places in image, focus on foods only.
     
-    If the image contains no food, respond only with the phrase: 'None food in image.'
-    """)
+   # If the image contains no food, respond only with the phrase: 'None food in image.'
+   # """)
             
             # Configuração da crew com o agente recrutador
             #agente_nutri = criar_agente(llama)
