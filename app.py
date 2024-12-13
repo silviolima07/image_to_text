@@ -6,7 +6,7 @@ from my_agents import criar_agente
 from my_tasks import criar_task
 from my_tools import save_uploaded_pdf, read_txt
 from config_llm import llama_groq, llava_groq
-import pdfplumber
+
 import os
 from PIL import Image
 import time
@@ -157,7 +157,7 @@ st.write("Groq key:", GROQ_API_KEY)
 client = Groq()
 
 st.write("Client groq:", client)
-"""
+
 # Criando o checkbox para mostrar ou não os comandos das tasks
 #mostrar_comandos = st.checkbox("Mostrar progresso das tarefas em execução", value=True)
 
