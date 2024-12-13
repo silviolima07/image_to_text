@@ -16,7 +16,7 @@ def criar_agente() -> Agent:
          tools=[], 
          verbose=True,
          llm=llm,
-        provider='groq,
+        provider='groq',
          backstory=dedent("""
               Você é um especialista em nutrição com experiência em identificar comidas saudáveis ou não."""
      )
