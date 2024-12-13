@@ -8,7 +8,7 @@ llm = MyLLM.GROQ_LLAMA
 st.write("LLM do agente:", llm)
 
 def criar_agente() -> Agent:
-    st.write("Agente criado")
+    #st.write("Agente criado")
     return Agent(
          role="Nutricionista",
          goal="Identificar se alimentos descritos no texto são saudáveis ou não.",
