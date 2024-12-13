@@ -129,7 +129,7 @@ def resize_image(image_path, max_width=200):
     return img_base64
     
 llama = llama_groq
-    
+st.write("Model: ", llama)    
 
 # Configuração da crew com o agente recrutador
 agente_nutri = criar_agente(llama)
@@ -214,11 +214,9 @@ if option == 'Image':
                       
                 with st.spinner('Wait for it...we are working...please'):
                     # Executa o CrewAI
-                    
-                    
+                  
                     try:
-                    
-                            
+                         
                         descricao = image_to_text(client, llama, base64_image, prompt)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
