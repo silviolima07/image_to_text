@@ -146,8 +146,7 @@ if option == 'Image':
         unsafe_allow_html=True
     )
             
-            prompt = dedent("""
-    Usando a LLM multimodal llama-3.2-90b-vision-preview.      
+            prompt = dedent("""     
     Você é um assistente especializado em descrever imagens. Sua tarefa é analisar uma imagem fornecida (codificada em base64) e identificar alimentos ou bebidas visíveis. Retorne a resposta no seguinte formato JSON:
 
 Se alimentos forem encontrados:
@@ -190,11 +189,7 @@ Se nenhum alimento for encontrado:
             st.write("Model: ", llama) 
           
             if st.button("INICIAR"):
-                #inputs = {
-                #      'question': "Fornecer uma descrição detalhada da imagem",
-                #      'image': base64_image,
-                #      'descricao': 'descricao_img.md'}
-                      
+              
                 with st.spinner('Wait for it...we are working...please'):
                     # Executa o CrewAI
                   
