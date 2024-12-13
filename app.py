@@ -79,10 +79,11 @@ client = Groq()
     
 llama = MyLLM.GROQ_LLAMA
 llama = llama_groq
-   
+modelo = 'groq/'+llama
+st.write("Modelo usado no agente:", modelo)
 
 # Configuração da crew com o agente recrutador
-agente_nutri = criar_agente('groq/'+llama)
+agente_nutri = criar_agente(modelo)
 #st.write("Objetivo: "+agente_nutri.goal)
 # Cria a task usando o agente criado
 #st.write('Criar a task')
