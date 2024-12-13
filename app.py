@@ -147,7 +147,7 @@ if option == 'Image':
     )
             
             prompt = dedent("""
-            
+    Usando a LLM multimodal llama-3.2-90b-vision-preview.      
     Você é um assistente especializado em descrever imagens. Sua tarefa é analisar uma imagem fornecida (codificada em base64) e identificar alimentos ou bebidas visíveis. Retorne a resposta no seguinte formato JSON:
 
 Se alimentos forem encontrados:
