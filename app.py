@@ -245,7 +245,6 @@ def resize_image(image_path, max_width=200):
     return img_base64
     
 llama = llama_groq
-llava = llava_groq
     
 
 # Configuração da crew com o agente recrutador
