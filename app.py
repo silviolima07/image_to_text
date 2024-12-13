@@ -179,12 +179,7 @@ if option == 'Image':
     You are an expert assistant in recognizing and describing foods in images with precision.
     
     Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
-
-    Always considering only foods present in the image.
     
-    Never describe cars, trucks,  places in image, focus on foods only.
-    
-    If the image contains no food, respond only with the phrase: 'None food in image.'
     """)
             
             # Configuração da crew com o agente recrutador
