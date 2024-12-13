@@ -152,6 +152,7 @@ load_dotenv()
 
 # Obter a chave da API GROQ
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+st.write("Groq key:", GROQ_API_KEY)
 
 client = Groq()
 
