@@ -17,5 +17,3 @@ def criar_agente() -> Agent:
               Você é um especialista em nutrição com experiência em identificar comidas saudáveis ou não."""
      )
      )
-
-
