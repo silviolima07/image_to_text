@@ -216,7 +216,7 @@ if option == 'Image':
                         # Executando a crew
                         answer = "None food in image"
                         if descricao.lower() != answer.lower():
-                            
+                            st.write("Analysing if health or not"
                             resultado = executar_crew(crew, inputs)
                             #result_text = resultado.raw
                             st.write("Analise: ",resultado)
