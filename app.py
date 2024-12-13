@@ -167,7 +167,7 @@ if option == 'Image':
                   
                     try:
                          
-                        descricao = image_to_text(client, llama, base64_image, prompt)
+                        descricao = image_to_text(client, llama, base64_image, prompt, idioma)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
                         
