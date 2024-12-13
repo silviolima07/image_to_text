@@ -81,7 +81,7 @@ load_dotenv()
 # Obter a chave da API GROQ
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
-client = Groq()
+client = Groq(api_key=GROQ_API_KEY)
     
 #llama = MyLLM.GROQ_LLAMA.model
 llama = llama_groq
