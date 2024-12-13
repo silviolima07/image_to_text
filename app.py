@@ -81,14 +81,6 @@ client = Groq()
 llama = llama_groq
 
 
-# Configuração da crew com o agente recrutador
-#agente_nutri = criar_agente()
-#st.write("Objetivo: "+agente_nutri.goal)
-# Cria a task usando o agente criado
-#st.write('Criar a task')
-#task_analise = criar_task(agente_nutri)
-
-
 html_page_title = """
 <div style="background-color:black;padding=60px">
         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
@@ -124,8 +116,7 @@ if option == 'Image':
         unsafe_allow_html=True
     )
             
-            prompt = dedent("""  
-    Answer in {idioma}.        
+            prompt = dedent("""         
     You are an expert assistant in recognizing and describing foods in images with precision.
     
     Your role is to analyze images and provide description of foods, giving details, like color,size and accurate descriptions of foods.
