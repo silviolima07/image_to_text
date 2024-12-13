@@ -218,12 +218,12 @@ if option == 'Image':
                         if descricao.lower() != answer.lower():
                             
                             resultado = executar_crew(crew, inputs)
-                            #result_text = resultado.choices[0]
+                            result_text = resultado.choices[0]
                             st.write(resultado)
                             #st.write(result_text)
                             # Exibindo o texto com um tamanho de fonte maior
                             # Substituindo quebras de linha por <br> e aplicando o estilo a todo o texto
-                            #st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
+                            st.markdown(f"<div style='font-size:23px'>{result_text.replace(chr(10), '<br>')}</div>", unsafe_allow_html=True)
                         else:
                             st.markdown("### "+descricao)
                         
