@@ -79,7 +79,7 @@ client = Groq()
     
 llama = MyLLM.GROQ_LLAMA
 llama = llama_groq
-modelo = 'groq/'+llama.model
+modelo = 'groq/'+MyLLM.GROQ_LLAMA.model
 st.write("Modelo usado no agente:", modelo)
 
 # Configuração da crew com o agente recrutador
