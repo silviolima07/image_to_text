@@ -79,7 +79,7 @@ client = Groq()
     
 #llama = MyLLM.GROQ_LLAMA.model
 llama = llama_groq
-st.write("Model: ", llama) 
+
 
 # Configuração da crew com o agente recrutador
 agente_nutri = criar_agente()
@@ -162,6 +162,7 @@ if option == 'Image':
             #st.markdown("#### "+prompt)
           
             #st.write("Model: ", MyLLM.GROQ_LLAMA.model) 
+             st.morkdown("###Model: "+llama) 
           
             if st.button("INICIAR"):
               
