@@ -5,6 +5,8 @@ from config_llm import MyLLM
 
 llm = MyLLM.GROQ_LLAMA
 
+st.write("LLM do agente:", llm)
+
 def criar_agente() -> Agent:
     st.write("Agente criado")
     return Agent(
