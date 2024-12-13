@@ -159,7 +159,7 @@ if option == 'Image':
                  
                )
           
-            st.write("Model: ", MyLLM.GROQ_LLAMA.model) 
+            st.write("Model: ", llm) 
           
             if st.button("INICIAR"):
               
