@@ -134,6 +134,8 @@ if option == 'Image':
     Never describe cars, trucks,  places in image, focus on foods only.
     
     If the image contains no food, respond only with the phrase: 'None food in image.'
+    
+    Answer in {idioma}.
 }
     """)
             
