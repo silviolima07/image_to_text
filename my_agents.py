@@ -3,7 +3,7 @@ import streamlit as st
 from textwrap import dedent
 from config_llm import MyLLM
 
-llm = MyLLM.GROQ_LLAMA.model
+llm = MyLLM.GROQ_LLAMA
 
 st.write("LLM do agente:", llm)
 
@@ -15,7 +15,7 @@ def criar_agente() -> Agent:
          allow_delegation=False,  # Define se o agente pode delegar tarefas
          tools=[], 
          verbose=True,
-         #llm=llm,
+         llm=llm,
          backstory=dedent("""
               Você é um especialista em nutrição com experiência em identificar comidas saudáveis ou não."""
      )
