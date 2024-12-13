@@ -218,7 +218,7 @@ if option == 'Image':
                         if descricao.lower() != answer.lower():
                             
                             resultado = executar_crew(crew, inputs)
-                            result_text = resultado.choices[0]
+                            result_text = resultado.raw
                             st.write(resultado)
                             #st.write(result_text)
                             # Exibindo o texto com um tamanho de fonte maior
