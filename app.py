@@ -102,7 +102,7 @@ client = Groq()
 
 
 # Função para redimensionar a imagem e convertê-la para Base64
-def resize_image(image_path, max_width=200):
+def resize_image2(image_path, max_width=200):
     img = Image.open(image_path)
     st.write("Image process...")
     
@@ -122,11 +122,11 @@ def resize_image(image_path, max_width=200):
     #img_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
     image_path="image.png"
     img.save(image_path)
-    img_base64 = encode_image(image_path)
+    #img_base64 = encode_image(image_path)
     st.write("- converted to base64")
     st.image(img)
     
-    return img_base64
+    return img # img_base64
     
 llama = llama_groq
    
@@ -228,7 +228,7 @@ Se nenhum alimento for encontrado:
                   
                     try:
                          
-                        descricao = image_to_text(client, llama, base64_image, prompt)
+                        descricao = image_to_text(client, llama, img, prompt)
                         # Exibindo a descricao
                         st.write("Descrição da imagem:")
                         
