@@ -24,9 +24,10 @@ def encode_image(image_path):
     
 def image_to_text(client, model, b64_image, prompt, idioma):
     language_instruction = {
-        "Portuguese": "Responda em Português.",
-        "English": "Respond in English."
-    }
+    "Portuguese": ("Responda em português com descrições precisas e detalhadas dos alimentos. "
+                   "Use frases claras e bem estruturadas."),
+    "English": "Respond in English with precise and detailed descriptions of the food. Use clear and structured sentences."
+}
     # Adiciona a instrução de idioma ao prompt
     prompt = f"{prompt}\n\n{language_instruction[idioma]}"
   
