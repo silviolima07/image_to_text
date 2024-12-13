@@ -218,8 +218,8 @@ if option == 'Image':
                         if descricao.lower() != answer.lower():
                             
                             resultado = executar_crew(crew, inputs)
-                            result_text = resultado.raw
-                            st.write(resultado)
+                            #result_text = resultado.raw
+                            st.write("Analise: ",resultado)
                             #st.write(result_text)
                             # Exibindo o texto com um tamanho de fonte maior
                             # Substituindo quebras de linha por <br> e aplicando o estilo a todo o texto
