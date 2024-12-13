@@ -259,11 +259,12 @@ agente_nutri = criar_agente(llama)
 task_analise = criar_task(agente_nutri)
 
 
-html_page_title = """
-     <div style="background-color:black;padding=60px">
-         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
-     </div>
-               """               
+html_page_title = 
+"""
+    <div style="background-color:black;padding=60px">
+        <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
+    </div>
+"""               
 st.markdown(html_page_title, unsafe_allow_html=True)
 
 garfo_colher = Image.open("img/garfo_colher2.png")
