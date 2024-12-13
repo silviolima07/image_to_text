@@ -82,11 +82,11 @@ llama = llama_groq
 
 
 # Configuração da crew com o agente recrutador
-agente_nutri = criar_agente()
+#agente_nutri = criar_agente()
 #st.write("Objetivo: "+agente_nutri.goal)
 # Cria a task usando o agente criado
 #st.write('Criar a task')
-task_analise = criar_task(agente_nutri)
+#task_analise = criar_task(agente_nutri)
 
 
 html_page_title = """
@@ -139,7 +139,7 @@ if option == 'Image':
             
             # Configuração da crew com o agente recrutador
             agente_nutri = criar_agente()
-            st.write("Objetivo: "+agente_nutri.goal)
+            #st.write("Objetivo: "+agente_nutri.goal)
             # Cria a task usando o agente criado
             #st.write('Criar a task')
             task_analise = criar_task(agente_nutri)
