@@ -260,9 +260,10 @@ task_analise = criar_task(agente_nutri)
 
 
 html_page_title = 
-"""<div style="background-color:black;padding=60px">
+"""
+<div style="background-color:black;padding=60px">
         <p style='text-align:center;font-size:60px;font-weight:bold; color:red'>Descrição de Alimentos em Imagens</p>
-    </div>
+</div>
 """               
 st.markdown(html_page_title, unsafe_allow_html=True)
 
