@@ -340,7 +340,7 @@ if option == 'Image':
                     try:
                     
                             
-                        descricao = image_to_text(client, llava, base64_image, prompt)
+                        descricao = image_to_text(client, llama, base64_image, prompt)
                         # Exibindo a descricao
                         #st.write("Descrição da imagem:")
                         
@@ -385,7 +385,7 @@ if option == 'Image':
 if option == 'About':
     prato = Image.open("img/prato.png")
     st.sidebar.image(prato,caption="",use_column_width=True)
-    st.markdown("### A partir da descrição da imagem feita por um agente especialista, usando o modelo llava,  um agente nutricionista, com modelo llama, informa se alimento é saudável.")
+    st.markdown("### A partir da descrição da imagem feita por um agente especialista, usando o modelo llama,  um agente nutricionista, com modelo llama, informa se alimento é saudável.")
     st.markdown("### Modelos acessados via Groq.")
     st.markdown("### Exemplo:")
     st.write("""
