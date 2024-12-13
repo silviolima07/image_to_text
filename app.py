@@ -78,12 +78,9 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 client = Groq()
     
 llama = MyLLM.GROQ_LLAMA
-llama = llama_groq
-modelo = 'groq/'+MyLLM.GROQ_LLAMA.model
-st.write("Modelo usado no agente:", modelo)
 
 # Configuração da crew com o agente recrutador
-agente_nutri = criar_agente(modelo)
+agente_nutri = criar_agente()
 #st.write("Objetivo: "+agente_nutri.goal)
 # Cria a task usando o agente criado
 #st.write('Criar a task')
