@@ -4,7 +4,7 @@ from crewai import Crew, Process
 from my_agents import criar_agente
 
 from my_tasks import criar_task
-from config_llm import MyLLM, llama_groq
+from config_llm import MyLLM, llama_groq_mm
 
 import os
 from PIL import Image
@@ -85,7 +85,7 @@ GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 client = Groq(api_key=GROQ_API_KEY)
     
 llama = MyLLM.GROQ_LLAMA.model
-#llama = llama_groq
+llama = llama_groq
 
 html_page_title = """
 <div style="background-color:black;padding=60px">
