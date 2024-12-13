@@ -153,7 +153,7 @@ load_dotenv()
 # Obter a chave da API GROQ
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
-client = Groq()
+#client = Groq()
 
 # Criando o checkbox para mostrar ou não os comandos das tasks
 #mostrar_comandos = st.checkbox("Mostrar progresso das tarefas em execução", value=True)
