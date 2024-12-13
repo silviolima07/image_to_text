@@ -22,8 +22,14 @@ def encode_image(image_path):
   with open(image_path, "rb") as image_file:
     return base64.b64encode(image_file.read()).decode('utf-8')   
     
-def image_to_text(client, model, b64_image, prompt):
-    
+def image_to_text(client, model, b64_image, prompt, idioma):
+    language_instruction = {
+        "Portuguese": "Responda em Português.",
+        "English": "Respond in English."
+    }
+    # Adiciona a instrução de idioma ao prompt
+    prompt = f"{prompt}\n\n{language_instruction[idioma]}"
+  
     result = client.chat.completions.create(
         messages=[
             {
