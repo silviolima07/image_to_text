@@ -39,7 +39,6 @@ Em resumo, a imagem apresenta uma refeição equilibrada e saudável, com uma ba
               """),
         
         agent=agente
-        #provider='groq'
     )    
     #st.write("Task: criada com sucesso")
     return analise
