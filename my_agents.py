@@ -3,7 +3,7 @@ import streamlit as st
 from textwrap import dedent
 from config_llm import MyLLM
 
-llm = MyLLM.GROQ_LLAMA.model
+llm = MyLLM.GROQ_LLAMA
 
 def criar_agente() -> Agent:
     #st.write("Agente criado")
