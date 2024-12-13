@@ -99,34 +99,6 @@ load_dotenv()
 GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 client = Groq()
-
-
-# Função para redimensionar a imagem e convertê-la para Base64
-def resize_image2(image_path, max_width=200):
-    img = Image.open(image_path)
-    st.write("Image process...")
-    
-    # Redimensiona a imagem mantendo a proporção
-    #st.write('Width:',img.width, 'Max:',200)
-    if img.width > max_width:
-        
-        ratio = max_width / img.width
-        new_size = (max_width, int(img.height * ratio))
-        img = img.resize(new_size, Image.Resampling.LANCZOS)
-        st.write("- resized")
-        
-
-    # Converte a imagem redimensionada para Base64
-    #buffer = io.BytesIO()
-    #img.save(buffer, format="PNG")
-    #img_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
-    image_path="image.png"
-    img.save(image_path)
-    #img_base64 = encode_image(image_path)
-    st.write("- converted to base64")
-    st.image(img)
-    
-    return img # img_base64
     
 llama = llama_groq
    
