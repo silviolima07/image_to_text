@@ -159,7 +159,9 @@ if option == 'Image':
                  
                )
           
-            st.markdown("##### LLM: "+llama)
+            st.markdown("##### LLM MULTI MODAL: "+llama)
+            llm = MyLLM.GROQ_LLAMA.model
+            st.write("LLM do agente:", llm)
           
             if st.button("INICIAR"):
               
