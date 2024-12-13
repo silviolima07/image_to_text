@@ -21,47 +21,12 @@ from textwrap import dedent
 # Function to encode the image
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
-    return base64.b64encode(image_file.read()).decode('utf-8')  
-
-
-# def image_to_text(client, model, b64_image, prompt):
-    # # Criando a string que inclui o prompt e a imagem em base64
-    # content_string = f"{prompt}\n\nImagem base64: data:image/png;base64,{b64_image}"
-    
-    # result = client.chat.completions.create(
-    # messages=[
-        # {
-            # "role": "user",
-            # "content": [
-                # {"type": "text", "text": prompt},
-                # {
-                    # "type": "image_url",
-                    # "image_url": {
-                        # "url": f"data:image/png;base64,{b64_image}",
-                    # },
-                # },
-            # ],
-       # }
-    # ],
-    # model=model
-    # )
-  
-    # return result.choices[0].message.content  
+    return base64.b64encode(image_file.read()).decode('utf-8')   
     
 def image_to_text(client, model, b64_image, prompt):
     
     result = client.chat.completions.create(
         messages=[
-             #Set an optional system message. This sets the behavior of the
-             #assistant and can be used to provide specific instructions for
-             #how it should behave throughout the conversation.
-            #{
-            #    "role": "system",
-    #"content": f""" You are an expert assistant in recognizing and describing images with precision. 
-    #Your role is to analyze images and provide clear, detailed, and accurate descriptions, considering both visual and contextual elements.
-    #When you receive an image, you should offer a detailed and precise description of all visible elements.
-    #"""
-    #        },
             {
                 "role": "user",
                 "content": [
@@ -223,11 +188,11 @@ if option == 'Image':
     """)
             
             # Configuração da crew com o agente recrutador
-            #agente_nutri = criar_agente(llama)
+            agente_nutri = criar_agente(llama)
             #st.write("Objetivo: "+agente_nutri.goal)
             # Cria a task usando o agente criado
             #st.write('Criar a task')
-            #task_analise = criar_task(agente_nutri)
+            task_analise = criar_task(agente_nutri)
             #st.write(task_analise)
             st.write(" ")
             st.markdown("## Analisar Imagem")
