@@ -183,7 +183,7 @@ print(completion.choices[0].message)
 client = Groq()
 
 st.write("Client groq:", client)
-
+"""
 # Criando o checkbox para mostrar ou não os comandos das tasks
 #mostrar_comandos = st.checkbox("Mostrar progresso das tarefas em execução", value=True)
 
@@ -437,4 +437,4 @@ Em resumo, a imagem apresenta uma refeição equilibrada, com uma balança adequ
 carboidratos e vegetais. No entanto, é importante ter cuidado com a quantidade de carne e arroz 
 consumidos e optar por opções mais saudáveis. Além disso, a adição de salsa ao prato pode ser benéfica, 
 pois fornece vitamina C e flavonoides..""")    
-    
+"""    
