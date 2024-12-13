@@ -52,16 +52,16 @@ def image_to_text(client, model, b64_image, prompt):
     
     result = client.chat.completions.create(
         messages=[
-            # Set an optional system message. This sets the behavior of the
-            # assistant and can be used to provide specific instructions for
-            # how it should behave throughout the conversation.
-            #{
-             #   "role": "system",
-    #"content": f""" You are an expert assistant in recognizing and describing images with precision. 
-    #Your role is to analyze images and provide clear, detailed, and accurate descriptions, considering both visual and contextual elements.
-    #When you receive an image, you should offer a detailed and precise description of all visible elements.
-    #"""
-    #        #},
+             Set an optional system message. This sets the behavior of the
+             assistant and can be used to provide specific instructions for
+             how it should behave throughout the conversation.
+            {
+                "role": "system",
+    "content": f""" You are an expert assistant in recognizing and describing images with precision. 
+    Your role is to analyze images and provide clear, detailed, and accurate descriptions, considering both visual and contextual elements.
+    When you receive an image, you should offer a detailed and precise description of all visible elements.
+    """
+            #},
             {
                 "role": "user",
                 "content": [
