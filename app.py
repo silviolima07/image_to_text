@@ -437,4 +437,4 @@ if option == 'About':
 #carboidratos e vegetais. No entanto, é importante ter cuidado com a quantidade de carne e arroz 
 #consumidos e optar por opções mais saudáveis. Além disso, a adição de salsa ao prato pode ser benéfica, 
 #pois fornece vitamina C e flavonoides..""")    
-"""    
+   
